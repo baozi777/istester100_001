@@ -67,6 +67,7 @@ print('***打印key:value***')
 for k,v in dict1.items():
     print(k,':',v)
 
+"5-字典的增加、删除、更新"
 print("5-字典的增加、删除、更新")
 # 字典的增加、删除、更新
 dict1 = {'name': 'zhangsan', 'age': 18, 'gender': 'boy'}
