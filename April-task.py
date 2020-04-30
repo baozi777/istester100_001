@@ -170,19 +170,32 @@
 #         # print('{0}*{1}={2}\t'.format(i,j,product),end='')#\t横向制表符
 #     print()
 
+"""
+1、剪刀石头布游戏：
+游戏开始，输入数字表示选项：退出【0】石头【1】剪刀【2】布【3】
+游戏结束，计算游戏者的胜率
+提示：人机游戏，机器可随机出拳
+"""
 import random
-
-bot = int(input('Set range bottom\n'))
-top = int(input('Set range top\n'))
-rand = random.randint(1, 4)
-print('Random number in [' + str(bot) + ',' + str(top) + '] generated!')
-num = int(input('###Guess the number###\n'))
-cnt = 1
-while (num != rand):
-    if (num < rand):
-        print('*_* Lower than the answer')
+print('游戏开始，输入数字表示选项：退出[0]石头[1]剪刀[2]布[3]')
+count =0
+sum =0
+shenglv =0
+rand = random.randint(1,4)
+num = int(input('输入你的选项：\n'))
+print('机器出拳',rand)
+while num != 0:
+    if (num,rand) in [(1,2),(2,3),(3,1)]:
+        count += 1
+        sum += 1
     else:
-        print('T_T Higher than the answer')
-    num = int(input('###Guess the number###\n'))
-    cnt = cnt + 1
-print('^_^ You get the answer with [%d] times' % cnt)
+        sum += 1
+    num = int(input('请输入你的选项：\n'))
+    rand = random.randint(1,4)
+    print('机器出拳',rand)
+if sum == 0:
+    shenglv = 0
+else:
+    shenglv = count / sum
+print(count,sum)
+print('你一共玩了%d局，胜率为%.2f%%' % (sum,shenglv*100))
