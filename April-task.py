@@ -170,32 +170,37 @@
 #         # print('{0}*{1}={2}\t'.format(i,j,product),end='')#\t横向制表符
 #     print()
 
+# """
+# 1、剪刀石头布游戏：
+# 游戏开始，输入数字表示选项：退出【0】石头【1】剪刀【2】布【3】
+# 游戏结束，计算游戏者的胜率
+# 提示：人机游戏，机器可随机出拳
+# """
+# import random
+# print('游戏开始，输入数字表示选项：退出[0]石头[1]剪刀[2]布[3]')
+# count =0
+# sum =0
+# shenglv =0
+# rand = random.randint(1,4)
+# num = int(input('输入你的选项：\n'))
+# print('机器出拳',rand)
+# while num != 0:
+#     if (num,rand) in [(1,2),(2,3),(3,1)]:
+#         count += 1
+#         sum += 1
+#     else:
+#         sum += 1
+#     num = int(input('请输入你的选项：\n'))
+#     rand = random.randint(1,3)
+#     print('机器出拳',rand)
+# if sum == 0:
+#     shenglv = 0
+# else:
+#     shenglv = count / sum
+# print(count,sum)
+# print('你一共玩了%d局，胜率为%.2f%%' % (sum,shenglv*100))
+
 """
-1、剪刀石头布游戏：
-游戏开始，输入数字表示选项：退出【0】石头【1】剪刀【2】布【3】
-游戏结束，计算游戏者的胜率
-提示：人机游戏，机器可随机出拳
+封装一个计算器函数
+计算器功能：仅支持加减乘除运算
 """
-import random
-print('游戏开始，输入数字表示选项：退出[0]石头[1]剪刀[2]布[3]')
-count =0
-sum =0
-shenglv =0
-rand = random.randint(1,4)
-num = int(input('输入你的选项：\n'))
-print('机器出拳',rand)
-while num != 0:
-    if (num,rand) in [(1,2),(2,3),(3,1)]:
-        count += 1
-        sum += 1
-    else:
-        sum += 1
-    num = int(input('请输入你的选项：\n'))
-    rand = random.randint(1,4)
-    print('机器出拳',rand)
-if sum == 0:
-    shenglv = 0
-else:
-    shenglv = count / sum
-print(count,sum)
-print('你一共玩了%d局，胜率为%.2f%%' % (sum,shenglv*100))
