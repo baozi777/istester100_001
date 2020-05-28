@@ -109,3 +109,24 @@
 # re_str = r'((\d|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])\.){3}(\d|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])'
 # result = re.fullmatch(re_str,'100.183.10.37')
 # print(result)
+
+# # 5. 计算一个字符串中所有的数字的和
+# # 例如：字符串是：‘hello90abc 78sjh12.5’ 结果是90+78+12.5 = 180.5
+# import re
+# str1 = 'hello90abc 78sjh12.5'
+# result = re.findall(r'[^a-z]+',str1)#[^...]	表示不在[]中的字符：[^abc] 匹配除了a,b,c之外的字符。
+# print(result)
+# sum1 = 0
+# for item in result:
+#     sum1 += float(item)
+# print(sum1)
+
+# # 6. 验证输入的内容只能是汉字
+# import re
+# re_str = r'[\u4E00-\u9fa5]+'
+# s = input('请输入：')
+# result = re.fullmatch(re_str,s)
+# if result == None:
+#     print('输入错误，只能输入汉字')
+# else:
+#     print(result)
