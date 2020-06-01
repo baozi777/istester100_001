@@ -11,3 +11,19 @@
 删除图书时：输入删除的书籍，找到名为书籍的所有数据，显示出来，然后用户根据编号选择删除。
 扩展要求：添加图书时，书名和位置可以随便写，编号不能和已经添加过得数据重复
 """
+
+class Book(object):  # 定义一个书类
+    def __init__(self,id,name,location):
+        self.id = id
+        self.name = name
+        self.location = location
+        return 'ID: %s 书名：<<%s>> 位置: %s' % (self.id,self.name,self.location)
+class BookManage(object):
+    books = []
+    def start(self):
+        self.books.append(Book(1,'Python',abc001))
+        self.books.append(Book(2,'C++',abb002))
+        self.books.append(Book(3,'软件测试的艺术',qwe111))
+
+
+
