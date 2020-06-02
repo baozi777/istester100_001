@@ -24,9 +24,9 @@ def print_menu():
     print("="*40)
 #函数：添加图书
 def add_new_name():
-    new_id = input("请输入图书ID：")
+    # new_id = input("请输入图书ID：")
     while True:
-        new_id = input('请重新输入你要新增的ID：')
+        new_id = input('请输入你要新增的图书ID：')
         for test_id in books:
             if new_id in test_id['id']:
                 print('图书馆有此ID的书籍')
