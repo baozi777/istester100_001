@@ -12,18 +12,71 @@
 扩展要求：添加图书时，书名和位置可以随便写，编号不能和已经添加过得数据重复
 """
 
-class Book(object):  # 定义一个书类
-    def __init__(self,id,name,location):
-        self.id = id
-        self.name = name
-        self.location = location
-        return 'ID: %s 书名：<<%s>> 位置: %s' % (self.id,self.name,self.location)
-class BookManage(object):
-    books = []
-    def start(self):
-        self.books.append(Book(1,'Python',abc001))
-        self.books.append(Book(2,'C++',abb002))
-        self.books.append(Book(3,'软件测试的艺术',qwe111))
+books = [{'id':'1','name':'Python','addr':'a1'},{'id':'2','name':'Java','addr':'a2'}]
+del_books = []
+def print_menu():
+    print("="*40)
+    print("           图书管理系统V6.1")
+    print("1.查询图书")
+    print("2.增加图书")
+    print("3.删除图书")
+    print("4.退出系统")
+    print("="*40)
+#函数：添加图书
+def add_new_name():
+    new_id = input("请输入图书ID：")
+    while True:
+        new_id = input('请重新输入你要新增的ID：')
+        for test_id in books:
+            if new_id in test_id['id']:
+                print('图书馆有此ID的书籍')
+                break
+        else:
+            break
+    new_name = input("请输入图书名称：")
+    new_addr = input("请输入图书存放地址：")
+    #建立一个字典，把信息保存到字典的相对应位置
+    new_infor = {}
+    new_infor['name'] = new_name
+    new_infor['id'] = new_id
+    new_infor['addr'] = new_addr
+    #将字典添加到列表中
+    books.append(new_infor)
+    #打印
+    print(books)
 
+#函数：删除
+def del_name():
+    del_names = input("请输入要删除的图书姓名：")
+    for temp in books:
+        if del_names in temp['name']:
+            del_books.append(temp)
+    print(del_books)
+    del_id =input('请选择你要删除书籍的ID：')
+    for temp1 in books:
+        if del_id in temp1['id']:
+            books.remove(temp1)
+            print("ID为 %s 的书籍已删除"% del_id)
+#函数：显示所有图书
+def display_all_name():
+    for temp in books:
+        print("ID：%s\n图书名称：%s\n存放地址：%s\n"%(temp['id'],temp['name'],temp['addr']))
 
+#主函数
+def main():
 
+    print_menu()
+    while True:
+        num = int(input("请输入相对应的数字:"))
+        if num ==1:
+            display_all_name()
+        elif num == 2:
+            add_new_name()
+        elif num == 3:
+            del_name()
+        elif num == 4:
+            print('欢迎下次使用。。。')
+            break
+        else:
+            print("您输入的选项不正确！")
+main()
